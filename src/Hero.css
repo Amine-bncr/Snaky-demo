@@ -1,0 +1,190 @@
+/* Hero parallax stage. The user can change --hero-stage to 300svh. */
+.hero-stage {
+  --hero-stage: 220svh;
+  position: relative;
+  height: var(--hero-stage);
+}
+
+.hero-pin {
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100svh - var(--header-h));
+  overflow: hidden;
+  background: var(--color-navy-deep);
+}
+
+.hero-media {
+  position: absolute;
+  inset: -8% 0;
+  width: 100%;
+  object-fit: cover;
+  transform: translate3d(0, calc(var(--hp) * -0.22 * 460px), 0)
+    scale(calc(1.06 + var(--hp) * 0.06));
+  transform-origin: center top;
+}
+
+.hero-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, calc(var(--hp) * -0.22 * 460px), 0)
+    scale(calc(1.06 + var(--hp) * 0.06));
+  transform-origin: center top;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-navy-deep) 55%, transparent) 0%,
+    color-mix(in srgb, var(--color-navy-deep) 12%, transparent) 33%,
+    color-mix(in srgb, var(--color-navy-deep) 72%, transparent) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-type {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.25rem;
+  transform: translateY(calc(var(--hp) * -60px));
+  opacity: calc(1 - var(--hp) * 1.6);
+  will-change: transform, opacity;
+}
+
+.hero-kicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-leaf);
+  margin-bottom: 1rem;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: min(var(--display), calc(90vw / (var(--chars) * 0.5)));
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.hero-h1 em {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-leaf);
+}
+
+.hero-sub {
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.hero-strap {
+  position: absolute;
+  bottom: 6vh;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-strap .leaf {
+  color: var(--color-leaf);
+}
+
+/* Word reveal */
+.hero-word {
+  display: inline-block;
+  transform: translateY(0.4em);
+  opacity: 0;
+}
+
+.hero-word.is-visible {
+  animation: hero-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hero-rise {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero-h1 {
+  --chars: 11;
+}
+
+@media (min-width: 640px) {
+  .hero-h1 {
+    --chars: 20;
+  }
+}
+
+.hero-media,
+.hero-fallback {
+  will-change: transform;
+}
+
+.hero-h1 .hero-word {
+  white-space: nowrap;
+}
+
+/* Reduced motion: no parallax, no animation, everything visible. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-stage {
+    --hero-stage: min(100svh, calc(100svh - var(--header-h)));
+    height: var(--hero-stage);
+  }
+  .hero-pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .hero-media,
+  .hero-fallback {
+    position: static;
+    inset: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+  }
+  .hero-veil {
+    position: absolute;
+  }
+  .hero-type {
+    transform: none;
+    opacity: 1;
+  }
+  .hero-word {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+}

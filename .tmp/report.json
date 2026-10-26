@@ -1,0 +1,97 @@
+[
+  {
+    "vp": "375x667",
+    "navLinks": {
+      "produits": false,
+      "histoire": false,
+      "commander": false
+    },
+    "straySentence": false,
+    "logo": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "width": 71,
+      "height": 40
+    },
+    "heroImgCount": 0,
+    "ctaCount": 2,
+    "headlineLines": [
+      {
+        "width": 191,
+        "container": 303,
+        "overflow": false
+      },
+      {
+        "width": 303,
+        "container": 303,
+        "overflow": false
+      },
+      {
+        "width": 162,
+        "container": 303,
+        "overflow": false
+      }
+    ],
+    "pinBottom": 667,
+    "viewport": "375x667"
+  },
+  {
+    "vp": "768x1024",
+    "navLinks": {
+      "produits": true,
+      "histoire": true,
+      "commander": true
+    },
+    "straySentence": false,
+    "logo": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "width": 71,
+      "height": 40
+    },
+    "heroImgCount": 0,
+    "ctaCount": 2,
+    "headlineLines": [
+      {
+        "width": 656,
+        "container": 656,
+        "overflow": false
+      },
+      {
+        "width": 215,
+        "container": 656,
+        "overflow": false
+      }
+    ],
+    "pinBottom": 1024,
+    "viewport": "768x1024"
+  },
+  {
+    "vp": "1280x720",
+    "navLinks": {
+      "produits": true,
+      "histoire": true,
+      "commander": true
+    },
+    "straySentence": false,
+    "logo": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "width": 71,
+      "height": 40
+    },
+    "heroImgCount": 0,
+    "ctaCount": 2,
+    "headlineLines": [
+      {
+        "width": 1063,
+        "container": 1063,
+        "overflow": false
+      },
+      {
+        "width": 349,
+        "container": 1063,
+        "overflow": false
+      }
+    ],
+    "pinBottom": 720,
+    "viewport": "1280x720"
+  }
+]

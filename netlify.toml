@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# This is a demo. Remove the robots rule at launch.
+[[headers]]
+  paths = ["robots.txt"]
+  headers = { "X-Robots-Tag" = "noindex, nofollow" }

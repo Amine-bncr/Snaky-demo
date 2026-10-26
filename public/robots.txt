@@ -1,0 +1,3 @@
+# DEMO: remove this file (or allow all) before launching.
+User-agent: *
+Disallow: /
